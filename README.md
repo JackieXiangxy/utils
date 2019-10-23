@@ -35,3 +35,51 @@
 	}
 
 ```
+
+### 冒泡排序
+
+```java
+
+	/**
+	 * 冒泡排序
+	 * 
+	 * @param num
+	 */
+	public static void bBubbleSort(int[] num) {
+		for (int i = 0; i < num.length; i++) {
+			for (int j = 0; j < num.length - 1 - i; j++) {
+				if (num[j] > num[j + 1]) {
+					int a = num[j + 1];
+					num[j + 1] = num[j];
+					num[j] = a;
+				}
+			}
+		}
+		for (int i : num) {
+			System.out.print(i+" ");
+		}
+	}
+
+```
+
+
+
+### 简单排序
+
+```java
+
+	/**
+	 * 简单排序
+	 * @param num
+	 */
+	public static void sort(int[] num) {
+		Arrays.parallelSort(num);
+		for (int i : num) {
+			System.out.print(i+" ");
+		}
+	}
+
+```
+
+
+
