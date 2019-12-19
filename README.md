@@ -81,5 +81,85 @@
 
 ```
 
+### 数组实现队列
 
+
+
+```java
+
+/**
+ * 使用数组模拟队列（先进先出）
+ */
+public class ArrayQueue {
+    private int maxSize;//数组的最大容量
+    private int front;//指向队列头
+    private int rear;//指向队列尾
+    private int arr[];//模拟队列
+
+    /**
+     * 队列初始化
+     * @param maxSize
+     */
+    public ArrayQueue(int maxSize){
+        this.maxSize=maxSize;
+        this.arr=new int[maxSize];  //初始化队列的最大容量
+        this.front=-1;//指向队列的头部，分析出front是指向队列头的前一个位置
+        this.rear=-1;//指向队列的尾，指向队列尾的具体数据（即就是队列的最后一个数据）
+    }
+
+    /**
+     * 判断是否已经满了
+     * @return
+     */
+    public boolean isFull(){
+        return rear==maxSize-1;
+    }
+
+    /**
+     * 判断队列为空
+     * @return
+     */
+    public boolean isEmpty(){
+        return front==rear;
+    }
+
+    /**
+     * 向队列中添加数据
+     * @param n
+     */
+    public void addQueue(int n){
+        if (isFull()){
+            System.out.println("队列已满，无法添加数据");
+            return ;
+        }
+        arr[++rear]=n;
+    }
+
+    /**
+     * 获取队列中的全部数据
+     * @return
+     */
+    public  int getQueue(){
+        if (isEmpty()){
+            throw new RuntimeException("队列为空，无法获取数据");
+        }
+        return arr[++front];
+    }
+
+    /**
+     * 显示队列中数据
+     */
+    public void showQueue(){
+        if (isEmpty()){
+            System.out.println("队列为空，无法展示");
+        }
+        for (int i =0;i<arr.length;i++){
+            System.out.print(" "+arr[i]);
+        }
+    }
+
+}
+
+
+```
 
